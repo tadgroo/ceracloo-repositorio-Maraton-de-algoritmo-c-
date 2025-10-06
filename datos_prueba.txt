@@ -1,0 +1,29 @@
+#include <iostream>
+#include <fstream> // Necesario para el manejo de archivos
+
+// Función principal
+int main() {
+    std::cout << "--- Escritura en Archivo ---" << std::endl;
+
+    // Declaración de un objeto ofstream para escribir en un archivo
+    std::ofstream archivo_salida("datos_prueba.txt");
+
+    // Verificar si el archivo se abrió correctamente
+    if (archivo_salida.is_open()) {
+        // Escribir contenido en el archivo
+        archivo_salida << "Hola, este es un mensaje de prueba.\n";
+        archivo_salida << "Escribiendo la segunda linea.\n";
+        archivo_salida << 12345 << " es un numero.\n";
+        
+        // Cerrar el archivo después de escribir
+        archivo_salida.close();
+        
+        std::cout << "Datos escritos exitosamente en 'datos_prueba.txt'." << std::endl;
+    } else {
+        std::cerr << "Error: No se pudo abrir el archivo para escritura." << std::endl;
+        return 1;
+    }
+
+    return 0;
+}
+
